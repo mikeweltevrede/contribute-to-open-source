@@ -102,6 +102,7 @@ select = [
     "ARG",                          # flake8-unused-arguments       | Unused function arguments
     "PTH",                          # flake8-use-pathlib            | Prefer pathlib over os, where possible
     "TD",                           # flake8-todos                  | Check valid TODO structure
+    "ERA",                          # eradicate                     | Remove commented out code
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
     "TRY",                          # tryceratops                   | Exception handling antipatterns
     "RUF",                          # ruff                          | Miscellaneous linting
