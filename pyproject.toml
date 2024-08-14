@@ -108,6 +108,7 @@ select = [
     "FLY",                          # flynt                         | `str.join` calls that can be replaced with f-strings
     "PERF",                         # perflint                      | Performance antipatterns
     "FURB",                         # refurb                        | Refurbish and modernize Python codebases
+    "DOC",                          # pydoclint                     | Check whether a docstring's sections match the function signature or implementation
     "RUF",                          # ruff                          | Miscellaneous linting
 ]
 extend-ignore = ["D100"]
