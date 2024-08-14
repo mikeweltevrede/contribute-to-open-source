@@ -12,7 +12,6 @@ def foo() -> str:
     Returns:
         str: Description of return value
     """
-
     return "foo"
 
 

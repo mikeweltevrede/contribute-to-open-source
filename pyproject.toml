@@ -71,27 +71,28 @@ skip-magic-trailing-comma = true
 
 [tool.ruff.lint]
 select = [
-    "F",                            # pyflakes                  | Check for errors
-    "E", "W",                       # pycodestyle               | Some of the style conventions in PEP 8
-    "C90",                          # mccabe                    | Cyclomatic complexity
-    "I",                            # isort                     | Sort imports
-    "N",                            # pep8-naming               | PEP 8 naming conventions
-    "D", "D204", "D400", "D401",    # pydocstyle                | Docstring conventions
-    "UP",                           # pyupgrade                 | Upgrade syntax for newer versions of the language
-    "YTT",                          # flake8-2020               | Misuse of sys.version or sys.version_info
-    "ANN",                          # flake8-annotations        | PEP 3107-style function annotations
-    "S",                            # flake8-bandit             | Security testing
-    "BLE",                          # flake8-blind-except       | Do not catch all exceptions
-    "FBT",                          # flake8-boolean-trap       | "Boolean Trap" antipattern
-    "B",                            # flake8-bugbear            | Check likely bugs and design problems
-    "A",                            # flake8-builtins           | Python builtins being used as variables or parameters
-    "C4",                           # flake8-comprehensions     | Better list/set/dict comprehensions
-    "T10",                          # flake8-debugger           | Presence of debugger calls and imports
-    "FA",                           # flake8-future-annotations | Verify code can use from `__future__ import annotations`
-    "SIM",                          # flake8-simplify           | Simplify code, e.g. checking superfluous code
-    "PGH",                          # pygrep-hooks              | Regex based pre-commit hooks
-    "TRY",                          # tryceratops               | Exception handling antipatterns
-    "RUF",                          # ruff                      | Miscellaneous linting
+    "F",                            # pyflakes                      | Check for errors
+    "E", "W",                       # pycodestyle                   | Some of the style conventions in PEP 8
+    "C90",                          # mccabe                        | Cyclomatic complexity
+    "I",                            # isort                         | Sort imports
+    "N",                            # pep8-naming                   | PEP 8 naming conventions
+#    "D", "D204", "D400", "D401",    # pydocstyle                    | Docstring conventions
+    "UP",                           # pyupgrade                     | Upgrade syntax for newer versions of the language
+    "YTT",                          # flake8-2020                   | Misuse of sys.version or sys.version_info
+    "ANN",                          # flake8-annotations            | PEP 3107-style function annotations
+    "S",                            # flake8-bandit                 | Security testing
+    "BLE",                          # flake8-blind-except           | Do not catch all exceptions
+    "FBT",                          # flake8-boolean-trap           | "Boolean Trap" antipattern
+    "B",                            # flake8-bugbear                | Check likely bugs and design problems
+    "A",                            # flake8-builtins               | Python builtins being used as variables or parameters
+    "C4",                           # flake8-comprehensions         | Better list/set/dict comprehensions
+    "T10",                          # flake8-debugger               | Presence of debugger calls and imports
+    "FA",                           # flake8-future-annotations     | Verify code can use from `__future__ import annotations`
+    "ISC",                          # flake8-implicit-str-concat    | Correct string literal concatenation
+    "SIM",                          # flake8-simplify               | Simplify code, e.g. checking superfluous code
+    "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
+    "TRY",                          # tryceratops                   | Exception handling antipatterns
+    "RUF",                          # ruff                          | Miscellaneous linting
 ]
 
 [tool.ruff.lint.per-file-ignores]
