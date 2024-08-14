@@ -65,4 +65,4 @@ Ready to contribute? Here's how to set up for local development.
 Before you submit a pull request, ensure that it meets the following guidelines:
 
 1. If the pull request adds functionality or fixes a bug, the pull request should include tests.
-2. If the pull request adds functionality, the documentation in `docs` directory should probably be updated.
+1. If the pull request adds functionality, the documentation in `docs` directory should probably be updated.
