@@ -9,7 +9,7 @@ readme = "README.md"
 packages = [
   {include = "contribute_to_open_source"}
 ]
-requires-python = ">=3.8,<4.0"
+requires-python = ">=3.9,<4.0"
 dependencies = []
 license = {text = "MIT license"}
 keywords = ['python']
