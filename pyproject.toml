@@ -105,6 +105,7 @@ select = [
     "ERA",                          # eradicate                     | Remove commented out code
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
     "TRY",                          # tryceratops                   | Exception handling antipatterns
+    "FLY",                          # flynt                         | `str.join` calls that can be replaced with f-strings
     "RUF",                          # ruff                          | Miscellaneous linting
 ]
 extend-ignore = ["D100"]
