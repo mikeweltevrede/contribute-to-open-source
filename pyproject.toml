@@ -1,7 +1,7 @@
 [project]
 name = "contribute_to_open_source"
 dynamic = ["version"]
-description = "Temp"
+description = "Tool to help one to contribute to Open Source projects. Goal is to search Github for open issues that might be interesting."
 authors = [
     {name = "Mike Weltevrede", email = "mikeweltevrede@gmail.com"},
 ]

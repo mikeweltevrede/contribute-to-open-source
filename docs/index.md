@@ -5,4 +5,4 @@
 [![Commit activity](https://img.shields.io/github/commit-activity/m/mikeweltevrede/contribute-to-open-source)](https://img.shields.io/github/commit-activity/m/mikeweltevrede/contribute-to-open-source)
 [![License](https://img.shields.io/github/license/mikeweltevrede/contribute-to-open-source)](https://img.shields.io/github/license/mikeweltevrede/contribute-to-open-source)
 
-Temp
+Tool to help one to contribute to Open Source projects. Goal is to search Github for open issues that might be interesting.
