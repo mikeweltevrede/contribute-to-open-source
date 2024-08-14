@@ -70,25 +70,36 @@ skip-magic-trailing-comma = true
 
 [tool.ruff.lint]
 select = [
-    "F",        # pyflakes
-    "E", "W",   # pycodestyle
-    "C90",      # mccabe
-    "I",        # isort
-    "UP",       # pyupgrade
-    "YTT",      # flake8-2020
-    "S",        # flake8-bandit
-    "B",        # flake8-bugbear
-    "A",        # flake8-builtins
-    "C4",       # flake8-comprehensions
-    "T10",      # flake8-debugger
-    "SIM",      # flake8-simplify
-    "PGH",      # pygrep-hooks
-    "TRY",      # tryceratops
-    "RUF",      # ruff
+    "F",        # pyflakes              | Check for errors
+    "E", "W",   # pycodestyle           | Some of the style conventions in PEP 8
+    "C90",      # mccabe                | Cyclomatic complexity
+    "I",        # isort                 | Sort imports
+    "UP",       # pyupgrade             | Upgrade syntax for newer versions of the language
+    "YTT",      # flake8-2020           | Misuse of sys.version or sys.version_info
+    "S",        # flake8-bandit         | Security testing
+    "B",        # flake8-bugbear        | Check likely bugs and design problems
+    "A",        # flake8-builtins       | Python builtins being used as variables or parameters
+    "C4",       # flake8-comprehensions | Better list/set/dict comprehensions
+    "T10",      # flake8-debugger       | Presence of debugger calls and imports
+    "SIM",      # flake8-simplify       | Simplify code, e.g. checking superfluous code
+    "PGH",      # pygrep-hooks          | Regex based pre-commit hooks
+    "TRY",      # tryceratops           | Exception handling antipatterns
+    "RUF",      # ruff                  | Miscellaneous linting
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101"]
+
+[tool.ruff.lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.lint.pycodestyle]
+ignore-overlong-task-comments = true
+max-doc-length = 120
 
 [tool.coverage.report]
 skip_empty = true
