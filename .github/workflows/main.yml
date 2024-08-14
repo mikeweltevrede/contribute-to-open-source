@@ -43,7 +43,7 @@ jobs:
       - name: Install PDM
         uses: pdm-project/setup-pdm@v3
         with:
-          python-version: 3.12
+          python-version: 3.9
           cache: true
 
       - name: Install dependencies
