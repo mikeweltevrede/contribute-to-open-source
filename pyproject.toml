@@ -77,9 +77,9 @@ select = [
     "I",                            # isort                 | Sort imports
     "N",                            # pep8-naming           | PEP 8 naming conventions
     "D", "D204", "D400", "D401",    # pydocstyle            | Docstring conventions
-    "ANN",                          # flake8-annotations    | PEP 3107-style function annotations
     "UP",                           # pyupgrade             | Upgrade syntax for newer versions of the language
     "YTT",                          # flake8-2020           | Misuse of sys.version or sys.version_info
+    "ANN",                          # flake8-annotations    | PEP 3107-style function annotations
     "S",                            # flake8-bandit         | Security testing
     "B",                            # flake8-bugbear        | Check likely bugs and design problems
     "A",                            # flake8-builtins       | Python builtins being used as variables or parameters
