@@ -39,9 +39,9 @@ Ready to contribute? Here's how to set up for local development.
     ```
 
 1. Now you need to set up your local environment.
-    - Create a virtual environment
-    - Install the dependencies
-    - Install pre-commit
+   - Create a virtual environment
+   - Install the dependencies
+   - Install pre-commit
 
 1. Create a branch `branch-name` (note that branch naming policies will be enforced at a certain point and will be outlined later) for local development:
     ```bash
