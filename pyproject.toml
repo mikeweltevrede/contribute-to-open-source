@@ -69,7 +69,12 @@ docstring-code-format = true
 skip-magic-trailing-comma = true
 
 [tool.ruff.lint]
-extend-select = [
+select = [
+    "F",        # pyflakes
+    "E", "W",   # pycodestyle
+    "C90",      # mccabe
+    "I",        # isort
+    "UP",       # pyupgrade
     "YTT",      # flake8-2020
     "S",        # flake8-bandit
     "B",        # flake8-bugbear
@@ -77,14 +82,9 @@ extend-select = [
     "C4",       # flake8-comprehensions
     "T10",      # flake8-debugger
     "SIM",      # flake8-simplify
-    "I",        # isort
-    "C90",      # mccabe
-    "E", "W",   # pycodestyle
-    "F",        # pyflakes
     "PGH",      # pygrep-hooks
-    "UP",       # pyupgrade
-    "RUF",      # ruff
     "TRY",      # tryceratops
+    "RUF",      # ruff
 ]
 
 [tool.ruff.lint.per-file-ignores]
