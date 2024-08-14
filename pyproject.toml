@@ -18,9 +18,9 @@ keywords = ['python']
 source = "scm"
 
 [project.urls]
-Homepage = "https://mikeweltevrede.github.io/contribute-to-open-source/"
+Homepage = "https://github.com/mikeweltevrede/contribute-to-open-source/"
 Repository = "https://github.com/mikeweltevrede/contribute-to-open-source"
-Documentation = "https://mikeweltevrede.github.io/contribute-to-open-source/"
+Documentation = "https://github.com/mikeweltevrede/contribute-to-open-source/"
 
 [tool.pdm.dev-dependencies]
 test = [

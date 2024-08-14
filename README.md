@@ -9,7 +9,7 @@
 Tool to help one to contribute to Open Source projects. Goal is to search Github for open issues that might be interesting.
 
 - **Github repository**: <https://github.com/mikeweltevrede/contribute-to-open-source/>
-- **Documentation** <https://mikeweltevrede.github.io/contribute-to-open-source/>
+- **Documentation** <https://github.com/mikeweltevrede/contribute-to-open-source/>
 
 ## Getting started with your project
 

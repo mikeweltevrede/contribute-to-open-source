@@ -1,11 +1,11 @@
 site_name: contribute-to-open-source
 repo_url: https://github.com/mikeweltevrede/contribute-to-open-source
-site_url: https://mikeweltevrede.github.io/contribute-to-open-source
+site_url: https://github.com/mikeweltevrede/contribute-to-open-source
 site_description: Tool to help one to contribute to Open Source projects. Goal is to search Github for open issues that might be interesting.
 site_author: Mike Weltevrede
 edit_uri: edit/main/docs/
 repo_name: mikeweltevrede/contribute-to-open-source
-copyright: Maintained by <a href="https://mikeweltevrede.com">Florian</a>.
+copyright: Maintained by Mike Weltevrede.
 
 nav:
   - Home: index.md
