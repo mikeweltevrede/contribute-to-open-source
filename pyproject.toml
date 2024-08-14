@@ -106,6 +106,7 @@ select = [
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
     "TRY",                          # tryceratops                   | Exception handling antipatterns
     "FLY",                          # flynt                         | `str.join` calls that can be replaced with f-strings
+    "PERF",                         # perflint                      | Performance antipatterns
     "RUF",                          # ruff                          | Miscellaneous linting
 ]
 extend-ignore = ["D100"]
