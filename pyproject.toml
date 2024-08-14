@@ -99,6 +99,7 @@ select = [
     "SIM",                          # flake8-simplify               | Simplify code, e.g. checking superfluous code
     "TID",                          # flake8-tidy-imports           | Tidier imports
     "TCH",                          # flake8-type-checking          | Check imports to move in or out of type-checking blocks
+    "ARG",                          # flake8-unused-arguments       | Unused function arguments
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
     "TRY",                          # tryceratops                   | Exception handling antipatterns
     "RUF",                          # ruff                          | Miscellaneous linting
@@ -123,6 +124,9 @@ ban-relative-imports = "all"
 exempt-modules = ["typing", "typing_extensions", "types"]
 quote-annotations = true
 strict = true
+
+[tool.ruff.lint.flake8-unused-arguments]
+ignore-variadic-names = true
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
