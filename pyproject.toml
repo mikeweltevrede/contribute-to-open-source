@@ -107,6 +107,7 @@ select = [
     "TRY",                          # tryceratops                   | Exception handling antipatterns
     "FLY",                          # flynt                         | `str.join` calls that can be replaced with f-strings
     "PERF",                         # perflint                      | Performance antipatterns
+    "FURB",                         # refurb                        | Refurbish and modernize Python codebases
     "RUF",                          # ruff                          | Miscellaneous linting
 ]
 extend-ignore = ["D100"]
