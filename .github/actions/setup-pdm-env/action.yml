@@ -17,9 +17,6 @@ runs:
 
     - name: Install PDM
       uses: pdm-project/setup-pdm@v4
-      with:
-        python-version: 3.9
-        cache: true
 
     - name: Install dependencies
       run: pdm install
