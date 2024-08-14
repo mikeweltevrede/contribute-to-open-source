@@ -76,7 +76,7 @@ select = [
     "C90",                          # mccabe                        | Cyclomatic complexity
     "I",                            # isort                         | Sort imports
     "N",                            # pep8-naming                   | PEP 8 naming conventions
-#    "D", "D204", "D400", "D401",    # pydocstyle                    | Docstring conventions
+    "D", "D204", "D400", "D401",    # pydocstyle                    | Docstring conventions
     "UP",                           # pyupgrade                     | Upgrade syntax for newer versions of the language
     "YTT",                          # flake8-2020                   | Misuse of sys.version or sys.version_info
     "ANN",                          # flake8-annotations            | PEP 3107-style function annotations
@@ -94,9 +94,10 @@ select = [
     "TRY",                          # tryceratops                   | Exception handling antipatterns
     "RUF",                          # ruff                          | Miscellaneous linting
 ]
+extend-ignore = ["D100"]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["S101"]
+"tests/*" = ["S101", "D", "ANN"]
 
 [tool.ruff.lint.flake8-annotations]
 allow-star-arg-any = true
