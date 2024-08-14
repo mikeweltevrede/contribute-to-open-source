@@ -98,6 +98,7 @@ select = [
     "RET",                          # flake8-return                 | Check return values
     "SIM",                          # flake8-simplify               | Simplify code, e.g. checking superfluous code
     "TID",                          # flake8-tidy-imports           | Tidier imports
+    "TCH",                          # flake8-type-checking          | Check imports to move in or out of type-checking blocks
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
     "TRY",                          # tryceratops                   | Exception handling antipatterns
     "RUF",                          # ruff                          | Miscellaneous linting
@@ -117,6 +118,11 @@ allow-dict-calls-with-keyword-arguments = true
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
+
+[tool.ruff.lint.flake8-type-checking]
+exempt-modules = ["typing", "typing_extensions", "types"]
+quote-annotations = true
+strict = true
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
