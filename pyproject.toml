@@ -90,6 +90,7 @@ select = [
     "FA",                           # flake8-future-annotations     | Verify code can use from `__future__ import annotations`
     "ISC",                          # flake8-implicit-str-concat    | Correct string literal concatenation
     "ICN",                          # flake8-import-conventions     | Import conventions, e.g. `pandas as pd`
+    "LOG",                          # flake8-logging                | Issues using the standard library logging module
     "SIM",                          # flake8-simplify               | Simplify code, e.g. checking superfluous code
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
     "TRY",                          # tryceratops                   | Exception handling antipatterns
