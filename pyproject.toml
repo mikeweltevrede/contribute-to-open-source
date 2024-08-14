@@ -48,11 +48,6 @@ includes = ["contribute_to_open_source"]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-[tool.black]
-line-length = 120
-target-version = ['py37']
-preview = true
-
 [tool.mypy]
 files = ["contribute_to_open_source"]
 disallow_untyped_defs = "True"
