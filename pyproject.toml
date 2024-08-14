@@ -74,6 +74,7 @@ select = [
     "E", "W",   # pycodestyle           | Some of the style conventions in PEP 8
     "C90",      # mccabe                | Cyclomatic complexity
     "I",        # isort                 | Sort imports
+    "N",        # pep8-naming           | PEP 8 naming conventions
     "UP",       # pyupgrade             | Upgrade syntax for newer versions of the language
     "YTT",      # flake8-2020           | Misuse of sys.version or sys.version_info
     "S",        # flake8-bandit         | Security testing
@@ -96,6 +97,9 @@ allow-dict-calls-with-keyword-arguments = true
 [tool.ruff.lint.isort]
 combine-as-imports = true
 required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.lint.pep8-naming]
+extend-ignore-names = ["test_*"]
 
 [tool.ruff.lint.pycodestyle]
 ignore-overlong-task-comments = true
