@@ -100,6 +100,7 @@ select = [
     "TID",                          # flake8-tidy-imports           | Tidier imports
     "TCH",                          # flake8-type-checking          | Check imports to move in or out of type-checking blocks
     "ARG",                          # flake8-unused-arguments       | Unused function arguments
+    "PTH",                          # flake8-use-pathlib            | Prefer pathlib over os, where possible
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
     "TRY",                          # tryceratops                   | Exception handling antipatterns
     "RUF",                          # ruff                          | Miscellaneous linting
