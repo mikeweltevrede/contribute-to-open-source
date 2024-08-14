@@ -95,6 +95,7 @@ select = [
     "INP",                          # flake8-no-pep420              | Ban PEP-420 implicit namespace packages
     "PIE",                          # flake8-pie                    | Miscellaneous linting
     "RSE",                          # flake8-raise                  | Improvements for raise statements
+    "RET",                          # flake8-return                 | Check return values
     "SIM",                          # flake8-simplify               | Simplify code, e.g. checking superfluous code
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
     "TRY",                          # tryceratops                   | Exception handling antipatterns
