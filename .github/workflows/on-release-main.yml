@@ -18,4 +18,3 @@ jobs:
 
       - name: Deploy documentation
         run: pdm run mkdocs gh-deploy --force
-  
