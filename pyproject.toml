@@ -59,9 +59,10 @@ warn_unused_ignores = "True"
 show_error_codes = "True"
 
 [tool.ruff]
-target-version = "py312"
+src = ["contribute_to_open_source", "tests"]
 line-length = 120
 fix = true
+show-fixes = true
 select = [
     "YTT",      # flake8-2020
     "S",        # flake8-bandit
