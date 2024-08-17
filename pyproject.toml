@@ -104,6 +104,7 @@ select = [
     "TD",                           # flake8-todos                  | Check valid TODO structure
     "ERA",                          # eradicate                     | Remove commented out code
     "PGH",                          # pygrep-hooks                  | Regex based pre-commit hooks
+    "PL",                           # pylint                        | Enforces a coding standard, looks for code smells, and suggestions about possible refactors
     "TRY",                          # tryceratops                   | Exception handling antipatterns
     "FLY",                          # flynt                         | `str.join` calls that can be replaced with f-strings
     "PERF",                         # perflint                      | Performance antipatterns
@@ -148,6 +149,9 @@ max-doc-length = 120
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.ruff.lint.pylint]
+max-args = 8
 
 [tool.coverage.report]
 skip_empty = true
