@@ -29,3 +29,8 @@ repos:
     rev: 2.18.1
     hooks:
       - id: pdm-lock-check
+
+  - repo: https://github.com/fpgmaas/deptry.git
+    rev: 0.19.1
+    hooks:
+      - id: deptry
