@@ -1,20 +1,37 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: "v4.4.0"
+    rev: v4.6.0
     hooks:
+      - id: check-ast
       - id: check-case-conflict
       - id: check-merge-conflict
       - id: check-toml
       - id: check-yaml
       - id: end-of-file-fixer
+      - id: name-tests-test
       - id: trailing-whitespace
+      - id: no-commit-to-branch
+        args: [
+          # By default, master and main are blocked. Here we also enforce branch naming.
+          # Every branch should be named "<prefix>/branch-name/dev", where <prefix> is
+          # equal to "major", "feature", or "fix". Note that "branch-name" is alphanumeric,
+          # separated by hyphens.
+          '--pattern', '^(?!((major|feature|fix)\/[a-zA-Z0-9\-]+)\/dev$).*',
+        ]
 
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.0.230"
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.1
     hooks:
       - id: ruff
+        args: [--exit-non-zero-on-fix]
+      - id: ruff-format
 
-  - repo: https://github.com/psf/black
-    rev: "22.8.0"
+  - repo: https://github.com/pdm-project/pdm
+    rev: 2.18.1
     hooks:
-      - id: black
+      - id: pdm-lock-check
+
+  - repo: https://github.com/fpgmaas/deptry.git
+    rev: 0.19.1
+    hooks:
+      - id: deptry
