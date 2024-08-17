@@ -24,3 +24,8 @@ repos:
     hooks:
       - id: ruff
       - id: ruff-format
+
+  - repo: https://github.com/pdm-project/pdm
+    rev: 2.18.1
+    hooks:
+      - id: pdm-lock-check
