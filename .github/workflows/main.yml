@@ -22,8 +22,13 @@ jobs:
       - name: Set up the environment
         uses: ./.github/actions/setup-pdm-env
 
-      - name: Run checks
+      - name: Run checks (on non-main branch)
         run: make check
+        if: ${{ github.ref_name != 'main' }}
+
+      - name: Run checks (on main branch)
+        run: make check-main
+        if: ${{ github.ref_name == 'main' }}
 
   tox:
     runs-on: ubuntu-latest

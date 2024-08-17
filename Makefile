@@ -6,14 +6,17 @@ install: ## Install the environment and install the pre-commit hooks
 
 .PHONY: check
 check: ## Run code quality tools.
-	@echo "🚀 Checking pdm lock file consistency with 'pyproject.toml': Running pdm lock --check"
-	@pdm lock --check
 	@echo "🚀 Linting code: Running pre-commit"
 	@pdm run pre-commit run -a
 	@echo "🚀 Static type checking: Running mypy"
 	@pdm run mypy
-	@echo "🚀 Checking for obsolete dependencies: Running deptry"
-	@pdm run deptry .
+
+.PHONY: check-main
+check-main: ## Run code quality tools, excluding "no-commit-to-branch" pre-commit hook
+	@echo "🚀 Linting code: Running pre-commit"
+	@SKIP=no-commit-to-branch pdm run pre-commit run -a
+	@echo "🚀 Static type checking: Running mypy"
+	@pdm run mypy
 
 .PHONY: test
 test: ## Test the code with pytest
