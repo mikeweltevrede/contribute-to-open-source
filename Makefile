@@ -29,16 +29,8 @@ build: clean-build ## Build wheel file
 	@pdm build
 
 .PHONY: clean-build
-clean-build: ## clean build artifacts
+clean-build: ## Clean build artifacts
 	@rm -rf dist
-
-.PHONY: docs-test
-docs-test: ## Test if documentation can be built without warnings or errors
-	@pdm run mkdocs build -s
-
-.PHONY: docs
-docs: ## Build and serve the documentation
-	@pdm run mkdocs serve
 
 .PHONY: help
 help:
