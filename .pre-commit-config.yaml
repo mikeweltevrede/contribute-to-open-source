@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: "v4.4.0"
+    rev: v4.6.0
     hooks:
       - id: check-case-conflict
       - id: check-merge-conflict
@@ -8,6 +8,14 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
+      - id: no-commit-to-branch
+        args: [
+          # By default, master and main are blocked. Here we also enforce branch naming.
+          # Every branch should be named "<prefix>/branch-name/dev", where <prefix> is
+          # equal to "major", "feature", or "fix". Note that "branch-name" is alphanumeric,
+          # separated by hyphens.
+          '--pattern', '^(?!((major|feature|fix)\/[a-zA-Z0-9\-]+)\/dev$).*',
+        ]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.5.7
