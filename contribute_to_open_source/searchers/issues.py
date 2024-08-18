@@ -1,21 +1,24 @@
 from __future__ import annotations
 
-from typing import Any
+from dataclasses import dataclass
 
 
-def generate_github_api_query(**kwargs: Any) -> str:
+@dataclass
+class QueryParameters:
+    """Parameters for GitHub API search."""
+
+    languages: list[str] | None = None
+
+
+def generate_github_api_query(query_params: QueryParameters) -> str:
     """Generate query with filters to retrieve issues with.
 
     Filters should match those for the GitHub API.
 
-    :param kwargs: Keyword arguments, the following are allowed:
-        - language: Programming languages to consider.
+    :param query_params: Query parameters.
     :return: Query with filters.
     """
     query = ""
-
-    languages = kwargs.get("languages")
-
-    query += f"language:{','.join(languages)}"
+    query += f"language:{','.join(query_params.languages)}"
 
     return query
