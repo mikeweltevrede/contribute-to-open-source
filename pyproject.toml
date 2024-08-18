@@ -141,6 +141,7 @@ ignore-variadic-names = true
 [tool.ruff.lint.isort]
 combine-as-imports = true
 required-imports = ["from __future__ import annotations"]
+split-on-trailing-comma = false
 
 [tool.ruff.lint.pep8-naming]
 extend-ignore-names = ["test_*"]
