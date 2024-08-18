@@ -1,4 +1,9 @@
 from __future__ import annotations
 
+from contribute_to_open_source.searchers import issues
 
-class TestIssueSearcher: ...
+
+class TestGenerateGithubApiQuery:
+    def test_languages_for_single_element_is_added_to_query(self):
+        expected = "language:python"
+        assert issues.generate_github_api_query(languages=["python"]) == expected
