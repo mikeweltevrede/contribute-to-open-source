@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
 class QueryParameters:
     """Parameters for GitHub API search."""
 
-    languages: list[str] | None = None
+    languages: list[str] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         """Post-initialization, doing data validation."""

@@ -17,3 +17,7 @@ class TestGenerateGithubApiQuery:
         params = issues.QueryParameters(languages=["python", "java"])
 
         assert issues.generate_github_api_query(params) == expected
+
+    def test_when_languages_not_provided_do_not_add_to_query(self):
+        params = issues.QueryParameters()
+        assert "language:" not in issues.generate_github_api_query(params)
