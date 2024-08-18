@@ -108,6 +108,7 @@ select = [
     "RUF",                          # ruff                          | Miscellaneous linting
 ]
 extend-ignore = [
+    "ANN101", "ANN102",  # Deprecated: type annotation for self and cls
     "D100",
     "ISC001",  # May cause conflicts when used with the formatter
 ]
