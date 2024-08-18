@@ -24,6 +24,6 @@ def generate_github_api_query(query_params: QueryParameters) -> str:
     :return: Query with filters.
     """
     query = ""
-    query += " OR ".join(f"language:{lang}" for lang in query_params.languages)
+    query += " OR ".join(f'language:"{lang}"' for lang in query_params.languages)
 
     return query
