@@ -4,6 +4,22 @@ import pytest
 from contribute_to_open_source.searchers import issues
 
 
+class TestQueryParameters:
+    def test_when_languages_not_provided_set_to_empty_list(self):
+        assert issues.QueryParameters().languages == []
+
+    def test_when_labels_not_provided_set_to_empty_list(self):
+        assert issues.QueryParameters().labels == []
+
+    def test_raises_NotImplementedError_if_more_than_one_elt_for_languages(self):
+        with pytest.raises(NotImplementedError):
+            issues.QueryParameters(languages=["python", "java"])
+
+    def test_raises_NotImplementedError_if_more_than_one_elt_for_labels(self):
+        with pytest.raises(NotImplementedError):
+            issues.QueryParameters(labels=["good-first-issue", "help wanted"])
+
+
 class TestGenerateGithubApiQuery:
     def test_languages_for_single_element_is_added_to_query(self):
         expected = 'language:"python"'
