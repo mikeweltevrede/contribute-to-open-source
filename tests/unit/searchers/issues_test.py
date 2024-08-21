@@ -11,6 +11,9 @@ class TestQueryParameters:
     def test_when_labels_not_provided_set_to_empty_list(self):
         assert issues.QueryParameters().labels == []
 
+    def test_when_states_not_provided_set_to_empty_list(self):
+        assert issues.QueryParameters().states == []
+
     def test_raises_NotImplementedError_if_more_than_one_elt_for_languages(self):
         with pytest.raises(NotImplementedError, match="Currently no support for multiple languages"):
             issues.QueryParameters(languages=["python", "java"])
@@ -18,6 +21,10 @@ class TestQueryParameters:
     def test_raises_NotImplementedError_if_more_than_one_elt_for_labels(self):
         with pytest.raises(NotImplementedError, match="Currently no support for multiple labels"):
             issues.QueryParameters(labels=["good-first-issue", "help wanted"])
+
+    def test_raises_NotImplementedError_if_more_than_one_elt_for_states(self):
+        with pytest.raises(NotImplementedError, match="Currently no support for multiple states"):
+            issues.QueryParameters(states=["open", "closed"])
 
     def test_raises_NotImplementedError_if_more_than_one_elt_for_languages_and_labels(self):
         with pytest.raises(NotImplementedError, match="Currently no support for multiple languages,labels"):
@@ -58,3 +65,20 @@ class TestGenerateGithubApiQuery:
     def test_when_labels_not_provided_do_not_add_to_query(self):
         params = issues.QueryParameters()
         assert "label:" not in issues.generate_github_api_query(params)
+
+    def test_states_for_single_element_is_added_to_query(self):
+        expected = 'state:"open"'
+        params = issues.QueryParameters(states=["open"])
+
+        assert issues.generate_github_api_query(params) == expected
+
+    @pytest.mark.xfail(reason="Currently no support for multiple states")
+    def test_states_for_multiple_elements_is_added_to_query(self):
+        expected = 'state:"open" OR state:"closed"'
+        params = issues.QueryParameters(states=["open", "closed"])
+
+        assert issues.generate_github_api_query(params) == expected
+
+    def test_when_states_not_provided_do_not_add_to_query(self):
+        params = issues.QueryParameters()
+        assert "state:" not in issues.generate_github_api_query(params)
