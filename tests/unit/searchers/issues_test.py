@@ -19,6 +19,10 @@ class TestQueryParameters:
         with pytest.raises(NotImplementedError, match="Currently no support for multiple labels"):
             issues.QueryParameters(labels=["good-first-issue", "help wanted"])
 
+    def test_raises_NotImplementedError_if_more_than_one_elt_for_languages_and_labels(self):
+        with pytest.raises(NotImplementedError, match="Currently no support for multiple languages,labels"):
+            issues.QueryParameters(languages=["python", "java"], labels=["good-first-issue", "help wanted"])
+
 
 class TestGenerateGithubApiQuery:
     def test_languages_for_single_element_is_added_to_query(self):
