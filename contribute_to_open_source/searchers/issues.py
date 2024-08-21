@@ -12,10 +12,12 @@ class QueryParameters:
 
     def __post_init__(self) -> None:
         """Post-initialization, doing data validation."""
-        if len(self.languages) > 1:
-            raise NotImplementedError("Currently no support for multiple languages")
-        if len(self.labels) > 1:
-            raise NotImplementedError("Currently no support for multiple labels")
+        # Currently do not support more than one element in the fields. However, for backwards compatibility's sake,
+        # we do define the fields as a list and do validation in post-init.
+        multi_elt_fields = [attr for attr, value in self.__dict__.items() if len(value) > 1]
+
+        if multi_elt_fields:
+            raise NotImplementedError(f"Currently no support for multiple {','.join(multi_elt_fields)}")
 
 
 def generate_github_api_query(query_params: QueryParameters) -> str:

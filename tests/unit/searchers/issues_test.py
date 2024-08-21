@@ -12,11 +12,11 @@ class TestQueryParameters:
         assert issues.QueryParameters().labels == []
 
     def test_raises_NotImplementedError_if_more_than_one_elt_for_languages(self):
-        with pytest.raises(NotImplementedError):
+        with pytest.raises(NotImplementedError, match="Currently no support for multiple languages"):
             issues.QueryParameters(languages=["python", "java"])
 
     def test_raises_NotImplementedError_if_more_than_one_elt_for_labels(self):
-        with pytest.raises(NotImplementedError):
+        with pytest.raises(NotImplementedError, match="Currently no support for multiple labels"):
             issues.QueryParameters(labels=["good-first-issue", "help wanted"])
 
 
