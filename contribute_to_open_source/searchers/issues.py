@@ -51,3 +51,12 @@ def search_issues(query_params: QueryParameters) -> dict:
 
     response = requests.get(github_api_url, params=params, headers=headers, timeout=60)
     return response.json()
+
+
+if __name__ == "__main__":
+    from pprint import pprint
+
+    query_params = QueryParameters(languages=["python"], labels=["good first issue"], states=["open"])
+    response = search_issues(query_params=query_params)
+
+    pprint(response)
