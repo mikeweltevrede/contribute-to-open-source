@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import Any
 
 import requests
 
@@ -40,7 +41,7 @@ def generate_github_api_query(query_params: QueryParameters) -> str:
     return query
 
 
-def search_issues(query_params: QueryParameters) -> dict:
+def search_issues(query_params: QueryParameters) -> dict[str, Any]:
     """Search GitHub issues according to the query parameters.
 
     :param query_params: Query parameters to GitHub's issue API.
@@ -52,7 +53,7 @@ def search_issues(query_params: QueryParameters) -> dict:
     # https://github.com/mikeweltevrede/contribute-to-open-source/issues/8
     headers = {"Accept": "application/vnd.github.v3+json"}
 
-    params = {
+    params: dict[str, str | int] = {
         "q": generate_github_api_query(query_params=query_params),
         "sort": "created",
         "order": "desc",
