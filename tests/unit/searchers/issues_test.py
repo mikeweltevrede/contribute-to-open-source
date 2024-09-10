@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from unittest import mock
+
 import pytest
 from contribute_to_open_source.searchers import issues
 
@@ -82,3 +84,14 @@ class TestGenerateGithubApiQuery:
     def test_when_states_not_provided_do_not_add_to_query(self):
         params = issues.QueryParameters()
         assert "state:" not in issues.generate_github_api_query(params)
+
+
+@mock.patch("contribute_to_open_source.searchers.issues.requests.get")
+class TestSearchIssues:
+    def test_request_is_made_to_github_api(self, mock_get):
+        github_api_url = "https://api.github.com/search/issues"
+        params = issues.QueryParameters()
+
+        issues.search_issues(params)
+
+        mock_get.assert_called_once_with(github_api_url, params=mock.ANY, headers=mock.ANY, timeout=mock.ANY)

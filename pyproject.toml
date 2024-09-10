@@ -10,7 +10,9 @@ packages = [
   {include = "contribute_to_open_source"}
 ]
 requires-python = ">=3.9,<4.0"
-dependencies = []
+dependencies = [
+    "requests>=2.32.3",
+]
 license = {text = "MIT license"}
 keywords = ['python']
 
