@@ -46,7 +46,11 @@ def search_issues(query_params: QueryParameters) -> dict:
     :return: JSON return value from the request to the issue API.
     """
     github_api_url = "https://api.github.com/search/issues"
+
+    # TODO(mike): Authenticate when using the GitHub API
+    # https://github.com/mikeweltevrede/contribute-to-open-source/issues/8
     headers = {"Accept": "application/vnd.github.v3+json"}
+
     params = {
         "q": generate_github_api_query(query_params=query_params),
         "sort": "created",
