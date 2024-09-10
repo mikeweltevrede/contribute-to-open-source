@@ -15,8 +15,9 @@ class QueryParameters:
 
     def __post_init__(self) -> None:
         """Post-initialization, doing data validation."""
-        # Currently do not support more than one element in the fields. However, for backwards compatibility's sake,
-        # we do define the fields as a list and do validation in post-init.
+        # TODO(mike): Currently do not support more than one element in the fields. However, for backwards
+        #  compatibility's sake, we do define the fields as a list and do validation in post-init.
+        # https://github.com/mikeweltevrede/contribute-to-open-source/issues/9
         multi_elt_fields = [attr for attr, value in self.__dict__.items() if len(value) > 1]
 
         if multi_elt_fields:
