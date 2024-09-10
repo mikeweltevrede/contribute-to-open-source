@@ -154,10 +154,11 @@ test = [
     "pytest-cov>=4.0.0",
 ]
 dev = [
-"deptry>=0.6.4",
-"mypy>=0.981",
-  "pre-commit>=2.20.0",
-  "tox>=3.25.1"
+    "deptry>=0.6.4",
+    "mypy>=0.981",
+    "pre-commit>=2.20.0",
+    "tox>=3.25.1",
+    "types-requests>=2.32.0",
 ]
 
 [tool.pdm.build]
