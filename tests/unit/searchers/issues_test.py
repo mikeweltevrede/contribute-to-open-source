@@ -101,3 +101,10 @@ class TestSearchIssues:
         actual = mock_get.call_args.kwargs["headers"]["Accept"]
 
         assert "vnd.github" in actual
+
+    def test_response_is_accepted_to_be_returned_in_json_format(self, mock_get):
+        issues.search_issues(params=issues.QueryParameters())
+
+        actual = mock_get.call_args.kwargs["headers"]["Accept"]
+
+        assert "+json" in actual
