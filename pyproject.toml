@@ -14,30 +14,10 @@ dependencies = []
 license = {text = "MIT license"}
 keywords = ['python']
 
-[tool.pdm.version]
-source = "scm"
-
 [project.urls]
 Homepage = "https://github.com/mikeweltevrede/contribute-to-open-source/"
 Repository = "https://github.com/mikeweltevrede/contribute-to-open-source"
 Documentation = "https://mikeweltevrede.github.io/contribute-to-open-source/"
-
-[tool.pdm.dev-dependencies]
-test = [
-  "pytest>=7.2.0",
-  "pytest-cov>=4.0.0"
-  ]
-dev = [
-"deptry>=0.6.4",
-"mypy>=0.981",
-  "pre-commit>=2.20.0",
-  "tox>=3.25.1"
-]
-
-[tool.pdm.build]
-excludes = ["./**/.git"]
-package-dir = "."
-includes = ["contribute_to_open_source"]
 
 [build-system]
 requires = ["pdm-backend"]
@@ -162,3 +142,24 @@ skip_empty = true
 [tool.coverage.run]
 branch = true
 source = ["contribute_to_open_source"]
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.2.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.14.0",
+]
+dev = [
+"deptry>=0.6.4",
+"mypy>=0.981",
+  "pre-commit>=2.20.0",
+  "tox>=3.25.1"
+]
+
+[tool.pdm.build]
+excludes = ["./**/.git"]
+package-dir = "."
+includes = ["contribute_to_open_source"]
