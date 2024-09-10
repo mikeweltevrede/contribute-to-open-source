@@ -10,34 +10,16 @@ packages = [
   {include = "contribute_to_open_source"}
 ]
 requires-python = ">=3.9,<4.0"
-dependencies = []
+dependencies = [
+    "requests>=2.32.3",
+]
 license = {text = "MIT license"}
 keywords = ['python']
-
-[tool.pdm.version]
-source = "scm"
 
 [project.urls]
 Homepage = "https://github.com/mikeweltevrede/contribute-to-open-source/"
 Repository = "https://github.com/mikeweltevrede/contribute-to-open-source"
 Documentation = "https://mikeweltevrede.github.io/contribute-to-open-source/"
-
-[tool.pdm.dev-dependencies]
-test = [
-  "pytest>=7.2.0",
-  "pytest-cov>=4.0.0"
-  ]
-dev = [
-"deptry>=0.6.4",
-"mypy>=0.981",
-  "pre-commit>=2.20.0",
-  "tox>=3.25.1"
-]
-
-[tool.pdm.build]
-excludes = ["./**/.git"]
-package-dir = "."
-includes = ["contribute_to_open_source"]
 
 [build-system]
 requires = ["pdm-backend"]
@@ -49,7 +31,6 @@ disallow_untyped_defs = "True"
 disallow_any_unimported = "True"
 no_implicit_optional = "True"
 check_untyped_defs = "True"
-warn_return_any = "True"
 warn_unused_ignores = "True"
 show_error_codes = "True"
 
@@ -105,10 +86,13 @@ select = [
     "FLY",                          # flynt                         | `str.join` calls that can be replaced with f-strings
     "PERF",                         # perflint                      | Performance antipatterns
     "FURB",                         # refurb                        | Refurbish and modernize Python codebases
-    "DOC",                          # pydoclint                     | Check whether a docstring's sections match the function signature or implementation
     "RUF",                          # ruff                          | Miscellaneous linting
 ]
-extend-ignore = ["D100"]
+extend-ignore = [
+    "ANN101", "ANN102",  # Deprecated: type annotation for self and cls
+    "D100",
+    "ISC001",  # May cause conflicts when used with the formatter
+]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101", "D", "ANN"]
@@ -138,6 +122,7 @@ ignore-variadic-names = true
 [tool.ruff.lint.isort]
 combine-as-imports = true
 required-imports = ["from __future__ import annotations"]
+split-on-trailing-comma = false
 
 [tool.ruff.lint.pep8-naming]
 extend-ignore-names = ["test_*"]
@@ -158,3 +143,24 @@ skip_empty = true
 [tool.coverage.run]
 branch = true
 source = ["contribute_to_open_source"]
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.2.0",
+    "pytest-cov>=4.0.0",
+]
+dev = [
+    "deptry>=0.6.4",
+    "mypy>=0.981",
+    "pre-commit>=2.20.0",
+    "tox>=3.25.1",
+    "types-requests>=2.32.0",
+]
+
+[tool.pdm.build]
+excludes = ["./**/.git"]
+package-dir = "."
+includes = ["contribute_to_open_source"]
