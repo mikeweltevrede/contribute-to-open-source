@@ -46,5 +46,7 @@ def search_issues(params: QueryParameters) -> dict:  # noqa: ARG001
     :return: JSON return value from the request to the issue API.
     """
     github_api_url = "https://api.github.com/search/issues"
-    response = requests.get(github_api_url, params=None, headers=None, timeout=60)
+    headers = {"Accept": "application/vnd.github.v3+json"}
+
+    response = requests.get(github_api_url, params=None, headers=headers, timeout=60)
     return response.json()

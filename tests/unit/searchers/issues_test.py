@@ -90,8 +90,14 @@ class TestGenerateGithubApiQuery:
 class TestSearchIssues:
     def test_request_is_made_to_github_api(self, mock_get):
         github_api_url = "https://api.github.com/search/issues"
-        params = issues.QueryParameters()
 
-        issues.search_issues(params)
+        issues.search_issues(params=issues.QueryParameters())
 
         mock_get.assert_called_once_with(github_api_url, params=mock.ANY, headers=mock.ANY, timeout=mock.ANY)
+
+    def test_response_is_accepted_to_be_from_github_vendor(self, mock_get):
+        issues.search_issues(params=issues.QueryParameters())
+
+        actual = mock_get.call_args.kwargs["headers"]["Accept"]
+
+        assert "vnd.github" in actual
