@@ -47,7 +47,15 @@ def search_issues(query_params: QueryParameters) -> dict:
     """
     github_api_url = "https://api.github.com/search/issues"
     headers = {"Accept": "application/vnd.github.v3+json"}
-    params = {"q": generate_github_api_query(query_params=query_params)}
+    params = {
+        "q": generate_github_api_query(query_params=query_params),
+        "sort": "created",
+        "order": "desc",
+        # TODO(mike): Un-hardcode these, probably in a pagination dataclass or general params dataclass
+        # https://github.com/mikeweltevrede/contribute-to-open-source/issues/7
+        "page": 1,
+        "per_page": 100,
+    }
 
     response = requests.get(github_api_url, params=params, headers=headers, timeout=60)
     return response.json()
