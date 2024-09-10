@@ -61,8 +61,8 @@ def search_issues(query_params: QueryParameters) -> dict:
         "per_page": 100,
     }
 
-    response = requests.get(github_api_url, params=params, headers=headers, timeout=60)
-    return response.json()
+    github_response = requests.get(github_api_url, params=params, headers=headers, timeout=60)
+    return github_response.json()
 
 
 if __name__ == "__main__":
