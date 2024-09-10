@@ -39,7 +39,7 @@ def generate_github_api_query(query_params: QueryParameters) -> str:
     return query
 
 
-def search_issues(query_params: QueryParameters) -> dict:  # noqa: ARG001
+def search_issues(query_params: QueryParameters) -> dict:
     """Search GitHub issues according to the query parameters.
 
     :param query_params: Query parameters to GitHub's issue API.
@@ -47,6 +47,7 @@ def search_issues(query_params: QueryParameters) -> dict:  # noqa: ARG001
     """
     github_api_url = "https://api.github.com/search/issues"
     headers = {"Accept": "application/vnd.github.v3+json"}
+    params = {"q": generate_github_api_query(query_params=query_params)}
 
-    response = requests.get(github_api_url, params=None, headers=headers, timeout=60)
+    response = requests.get(github_api_url, params=params, headers=headers, timeout=60)
     return response.json()

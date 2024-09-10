@@ -102,9 +102,14 @@ class TestSearchIssues:
 
         assert "vnd.github" in actual
 
-    def test_response_is_accepted_to_be_returned_in_json_format(self, mock_get):
-        issues.search_issues(query_params=issues.QueryParameters())
+    @mock.patch("contribute_to_open_source.searchers.issues.generate_github_api_query")
+    def test_params_query_is_constructed_with_generate_github_api_query_and_input_query_params(
+        self, mock_generate_github_api_query, mock_get
+    ):
+        params = issues.QueryParameters()
+        issues.search_issues(query_params=params)
 
-        actual = mock_get.call_args.kwargs["headers"]["Accept"]
+        actual_get_params = mock_get.call_args.kwargs["params"]
 
-        assert "+json" in actual
+        mock_generate_github_api_query.assert_called_once_with(query_params=params)
+        assert actual_get_params["q"] == mock_generate_github_api_query()
