@@ -6,6 +6,8 @@ from typing import Any
 
 import requests
 
+from contribute_to_open_source.api_helpers.headers import construct_github_header
+
 
 @dataclass
 class QueryParameters:
@@ -46,16 +48,12 @@ def search_issues(query_params: QueryParameters, token: str | None = None) -> di
     """Search GitHub issues according to the query parameters.
 
     :param query_params: Query parameters to GitHub's issue API.
+    :param token: GitHub Personal Access Token. If not provided, try to get from the "GITHUB_TOKEN" environment
+        variable. If it is not provided in there, do not add authorization to the header.
     :return: JSON return value from the request to the issue API.
     """
     github_api_url = "https://api.github.com/search/issues"
-    token = token or os.getenv("GITHUB_TOKEN")
-
-    headers = {"Accept": "application/vnd.github.v3+json"}
-    if token:
-        # If there is no token provided and it is not found in the environment variable GITHUB_TOKEN, then
-        # we should not add the "Authorization" header to our request
-        headers["Authorization"] = token
+    headers = construct_github_header(token=token)
 
     params: dict[str, str | int] = {
         "q": generate_github_api_query(query_params=query_params),
