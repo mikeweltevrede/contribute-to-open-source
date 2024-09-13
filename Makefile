@@ -21,7 +21,7 @@ check-main: ## Run code quality tools, excluding "no-commit-to-branch" pre-commi
 .PHONY: test
 test: ## Test the code with pytest
 	@echo "🚀 Testing code: Running pytest"
-	@pdm run pytest --cov --cov-config=pyproject.toml --cov-report=xml
+	@pdm run pytest --cov --cov-config=pyproject.toml --cov-report=xml --cov-report=term-missing
 
 .PHONY: build
 build: clean-build ## Build wheel file
