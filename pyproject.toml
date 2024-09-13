@@ -139,6 +139,15 @@ max-args = 8
 
 [tool.coverage.report]
 skip_empty = true
+exclude_also = [
+    'if self.debug:',
+    'raise AssertionError',
+    'raise NotImplementedError',
+    'if __name__ == "__main__":',
+    'if TYPE_CHECKING:',
+    'class .*\\bProtocol\\):',
+    '@(abc\\.)?abstractmethod'
+]
 
 [tool.coverage.run]
 branch = true
