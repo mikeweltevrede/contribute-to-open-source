@@ -114,6 +114,13 @@ class TestSearchIssues:
         mock_generate_github_api_query.assert_called_once_with(query_params=params)
         assert actual_get_params["q"] == mock_generate_github_api_query()
 
+    def test_response_uses_authentication_from_token_argument_if_provided(self, mock_get):
+        issues.search_issues(query_params=issues.QueryParameters(), token=(token := "test_token_123"))
+
+        actual = mock_get.call_args.kwargs["headers"]["Authorization"]
+
+        assert actual == token
+
     def test_response_uses_authentication_from_env_var_GITHUB_TOKEN_if_not_provided(self, mock_get, monkeypatch):
         monkeypatch.setenv("GITHUB_TOKEN", token := "test_token_123")
 
