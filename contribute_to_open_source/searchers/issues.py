@@ -72,9 +72,14 @@ def search_issues(query_params: QueryParameters, token: str | None = None) -> di
 
 
 if __name__ == "__main__":
+    import pathlib
     from pprint import pprint
 
+    from dotenv import load_dotenv
+
+    load_dotenv(pathlib.Path.home() / ".env")
+
     query_params = QueryParameters(languages=["python"], labels=["good first issue"], states=["open"])
-    response = search_issues(query_params=query_params)
+    response = search_issues(query_params=query_params, token=os.environ["GITHUB_TOKEN"])
 
     pprint(response)
