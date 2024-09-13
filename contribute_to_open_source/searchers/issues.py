@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -41,17 +42,18 @@ def generate_github_api_query(query_params: QueryParameters) -> str:
     return query
 
 
-def search_issues(query_params: QueryParameters) -> dict[str, Any]:
+def search_issues(query_params: QueryParameters, token: str | None = None) -> dict[str, Any]:
     """Search GitHub issues according to the query parameters.
 
     :param query_params: Query parameters to GitHub's issue API.
     :return: JSON return value from the request to the issue API.
     """
     github_api_url = "https://api.github.com/search/issues"
+    token = token or os.getenv("GITHUB_TOKEN")
 
     # TODO(mike): Authenticate when using the GitHub API
     # https://github.com/mikeweltevrede/contribute-to-open-source/issues/8
-    headers = {"Accept": "application/vnd.github.v3+json"}
+    headers = {"Accept": "application/vnd.github.v3+json", "Authorization": token}
 
     params: dict[str, str | int] = {
         "q": generate_github_api_query(query_params=query_params),
