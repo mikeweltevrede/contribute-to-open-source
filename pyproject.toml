@@ -12,6 +12,7 @@ packages = [
 requires-python = ">=3.9,<4.0"
 dependencies = [
     "requests>=2.32.3",
+    "python-dotenv>=1.0.1",
 ]
 license = {text = "MIT license"}
 keywords = ['python']

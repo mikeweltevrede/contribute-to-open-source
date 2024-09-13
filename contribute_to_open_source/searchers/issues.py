@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -41,17 +42,20 @@ def generate_github_api_query(query_params: QueryParameters) -> str:
     return query
 
 
-def search_issues(query_params: QueryParameters) -> dict[str, Any]:
+def search_issues(query_params: QueryParameters, token: str | None = None) -> dict[str, Any]:
     """Search GitHub issues according to the query parameters.
 
     :param query_params: Query parameters to GitHub's issue API.
     :return: JSON return value from the request to the issue API.
     """
     github_api_url = "https://api.github.com/search/issues"
+    token = token or os.getenv("GITHUB_TOKEN")
 
-    # TODO(mike): Authenticate when using the GitHub API
-    # https://github.com/mikeweltevrede/contribute-to-open-source/issues/8
     headers = {"Accept": "application/vnd.github.v3+json"}
+    if token:
+        # If there is no token provided and it is not found in the environment variable GITHUB_TOKEN, then
+        # we should not add the "Authorization" header to our request
+        headers["Authorization"] = token
 
     params: dict[str, str | int] = {
         "q": generate_github_api_query(query_params=query_params),
@@ -68,9 +72,14 @@ def search_issues(query_params: QueryParameters) -> dict[str, Any]:
 
 
 if __name__ == "__main__":
+    import pathlib
     from pprint import pprint
 
+    from dotenv import load_dotenv
+
+    load_dotenv(pathlib.Path.home() / ".env")
+
     query_params = QueryParameters(languages=["python"], labels=["good first issue"], states=["open"])
-    response = search_issues(query_params=query_params)
+    response = search_issues(query_params=query_params, token=os.environ["GITHUB_TOKEN"])
 
     pprint(response)
