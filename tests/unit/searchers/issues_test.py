@@ -129,3 +129,12 @@ class TestSearchIssues:
         actual = mock_get.call_args.kwargs["headers"]["Authorization"]
 
         assert actual == token
+
+    def test_when_token_not_provided_and_not_in_env_var_GITHUB_TOKEN_then_do_not_add_Authorization_to_header(
+        self, mock_get, monkeypatch
+    ):
+        monkeypatch.delenv("GITHUB_TOKEN", raising=False)
+
+        issues.search_issues(query_params=issues.QueryParameters())
+
+        assert "Authorization" not in mock_get.call_args.kwargs["headers"]

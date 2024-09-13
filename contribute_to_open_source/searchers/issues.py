@@ -51,9 +51,11 @@ def search_issues(query_params: QueryParameters, token: str | None = None) -> di
     github_api_url = "https://api.github.com/search/issues"
     token = token or os.getenv("GITHUB_TOKEN")
 
-    # TODO(mike): Authenticate when using the GitHub API
-    # https://github.com/mikeweltevrede/contribute-to-open-source/issues/8
-    headers = {"Accept": "application/vnd.github.v3+json", "Authorization": token}
+    headers = {"Accept": "application/vnd.github.v3+json"}
+    if token:
+        # If there is no token provided and it is not found in the environment variable GITHUB_TOKEN, then
+        # we should not add the "Authorization" header to our request
+        headers["Authorization"] = token
 
     params: dict[str, str | int] = {
         "q": generate_github_api_query(query_params=query_params),
