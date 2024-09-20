@@ -11,6 +11,8 @@ Open source is the way to go. Whenever a new project is started, one should alwa
 - **GitHub repository**: <https://github.com/mikeweltevrede/contribute-to-open-source/>
 - **Documentation** <https://github.com/mikeweltevrede/contribute-to-open-source/>
 
+**NB:** This project is in an extremely early phase. Until it is ready, please take a look at "First contributions" ([Github repo](https://github.com/firstcontributions/first-contributions) and [Website](https://firstcontributions.github.io/)). This tool allows you to filter for popular repos based on language and their topic.
+
 # Goal
 My goal is to build a tool that can help people navigate GitHub issues to find items that they can contribute to. Most people recommend starting with a tool that you use yourself, because you are familiar with its goals and that is a great place to start. However, those projects might also be very daunting to work with. Some open source projects that are established might be very complex in the background and are not a good place to begin your open source journey. You first want to get familiar with the way of working by doing some relatively easy issues.
 
