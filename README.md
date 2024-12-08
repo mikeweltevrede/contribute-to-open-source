@@ -4,8 +4,13 @@
 [![codecov](https://codecov.io/gh/mikeweltevrede/contribute-to-open-source/branch/main/graph/badge.svg)](https://codecov.io/gh/mikeweltevrede/contribute-to-open-source)
 [![License](https://img.shields.io/github/license/mikeweltevrede/contribute-to-open-source)](https://img.shields.io/github/license/mikeweltevrede/contribute-to-open-source)
 
-**Want to contribute to open source projects but don't know where to start?**
+## This project has been archived!
+Please see the following resources to help you get started with open source :)
+- https://github.com/firstcontributions/first-contributions
+- https://24pullrequests.com/
+- [Magdalena Kowalczuk (@anopsy)](https://github.com/anopsy) - [Alice in Open Source Land (YouTube, 31m34s)](https://www.youtube.com/watch?v=IY9Dl2gD_Rw)
 
+## Want to contribute to open source projects but don't know where to start?
 Open source is the way to go. Whenever a new project is started, one should always consider if there is an interesting open source project out there that solves your issue. I have experienced incredible efforts in the field and was aiming to contribute myself as well. However, where do you start? There are so many projects to contribute to and it is difficult to find where to begin. This is where this project comes in.
 
 - **GitHub repository**: <https://github.com/mikeweltevrede/contribute-to-open-source/>
